@@ -856,7 +856,7 @@ export default function App() {
                 >
                   NUMBER OF EVENTS
                 </p>
-                <div style={{ display: "flex", gap: 5, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", gap: 5, flexWrap: "wrap", alignItems: "center" }}>
                   {[3, 5, 10, 20, 50, 100].map((v) => (
                     <button
                       key={v}
@@ -866,6 +866,31 @@ export default function App() {
                       {v}
                     </button>
                   ))}
+                  <input
+                    type="number"
+                    min={1}
+                    max={1000}
+                    value={n}
+                    onChange={(e) => {
+                      const v = parseInt(e.target.value);
+                      if (v >= 1) setN(v);
+                    }}
+                    style={{
+                      minWidth: 48,
+                      height: 34,
+                      padding: "0 8px",
+                      borderRadius: 6,
+                      border: "1.5px solid var(--border)",
+                      background: "var(--input-bg)",
+                      color: "var(--fg)",
+                      fontFamily: "var(--mono)",
+                      fontSize: 12,
+                      fontWeight: 700,
+                      outline: "none",
+                      boxSizing: "border-box",
+                    }}
+                    title="Custom number of events"
+                  />
                 </div>
               </div>
               <button
