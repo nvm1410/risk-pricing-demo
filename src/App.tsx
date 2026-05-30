@@ -280,7 +280,7 @@ function PricesToProbs({ n, lr, iters }: { n: number; lr: number; iters: number 
     targetPrices.length === n &&
     targetPrices.every((p) => !isNaN(p) && p > 0 && p <= 1);
 
-  const state = useImpliedProbsAsync(targetY, targetPrices, allValid && submitted, { lr, iters });
+  const state = useImpliedProbsAsync(targetY, targetPrices, allValid && submitted);
   const sumCheck = allValid ? targetY + targetPrices.reduce((a, b) => a + b, 0) : 0;
   const sumOk = Math.abs(sumCheck - 1) < 0.02;
 
